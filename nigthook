@@ -1,4 +1,4 @@
--- MODIFIED Storm Library with a smaller default window size
+-- MODIFIED Storm Library with a smaller default window size and centered spawn
 --Storm
 local LoadingTick = os.clock()
 
@@ -4067,7 +4067,8 @@ local Library do
         }
 
         local Items = Components.Window({
-            Position = UDim2.new(0, Camera.ViewportSize.X / 4, 0, Camera.ViewportSize.Y / 3),
+            -- MODIFIED: Center the window on screen
+            Position = UDim2.new(0.5, -(Window.Size.X.Offset / 2), 0.5, -(Window.Size.Y.Offset / 2)),
             Size = Window.Size,
             Parent = self.Holder,
             Draggable = true
@@ -5187,4 +5188,3 @@ end
 
 getgenv().Library = Library
 return Library
---a
