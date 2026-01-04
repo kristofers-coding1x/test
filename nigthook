@@ -1,4 +1,3 @@
--- MODIFIED Storm Library with a smaller default window size and centered spawn
 --Storm
 local LoadingTick = os.clock()
 
