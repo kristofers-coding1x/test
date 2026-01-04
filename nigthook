@@ -4067,7 +4067,7 @@ local Library do
 
         local Items = Components.Window({
             -- MODIFIED: Center the window on screen
-            Position = UDim2.new(0.1, -(Window.Size.X.Offset / 2), 0,1, -(Window.Size.Y.Offset / 2)),
+            Position = UDim2.new(0.5, 50, 0.5, 10),
             Size = Window.Size,
             Parent = self.Holder,
             Draggable = true
