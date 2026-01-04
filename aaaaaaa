@@ -1,4 +1,4 @@
---Stormt
+--Stormt222
 local LoadingTick = os.clock()
 
 if getgenv().Library then 
@@ -4067,7 +4067,7 @@ local Library do
 
         local Items = Components.Window({
             -- MODIFIED: Center the window on screen
-            Position = UDim2.new(0, -(Window.Size.X.Offset / 2), 0, -(Window.Size.Y.Offset / 2)),
+            Position = UDim2.new(0.2, -(Window.Size.X.Offset / 2), 0.2, -(Window.Size.Y.Offset / 2)),
             Size = Window.Size,
             Parent = self.Holder,
             Draggable = true
