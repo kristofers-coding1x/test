@@ -1846,7 +1846,8 @@ local Library do
         end
 
         function Button:SetVisibility(Bool)
-            Items["Button"].Instance.Visible = Bool
+            -- FIX: Corrected recursive call
+            NewButton:SetVisibility(Bool)
         end
 
         function Button:SubButton(Data)
@@ -1948,7 +1949,8 @@ local Library do
             end
 
             function SubButton:SetVisibility(Bool)
-                SubItems["Button"].Instance.Visible = Bool
+                -- FIX: Corrected recursive call
+                NewSubbutton:SetVisibility(Bool)
             end
 
             SubItems["Button"]:Connect("MouseButton1Down", function()
@@ -3178,7 +3180,7 @@ local Library do
                 OldColor = Colorpicker.Color
                 Library:Thread(function()
                     while task.wait() do 
-                        local RainbowHue = MathAbs(MathSin(tick() * Colorpicker.CurrentAnimationSpeed))
+                        local RainbowHue = MathAbs(mathSin(tick() * Colorpicker.CurrentAnimationSpeed))
                         local Color = FromHSV(RainbowHue, 1, 1)
 
                         Colorpicker:Set(Color, Colorpicker.Alpha)
@@ -3195,7 +3197,7 @@ local Library do
                 Library:Thread(function()
                     while task.wait() do
                         local AlphaIntensity = Colorpicker.CurrentAnimationIntensity
-                        local Alpha = MathAbs(MathSin(tick() % AlphaIntensity) * Colorpicker.CurrentAnimationSpeed)
+                        local Alpha = MathAbs(mathSin(tick() % AlphaIntensity) * Colorpicker.CurrentAnimationSpeed)
 
                         Colorpicker:Set(Colorpicker.Color, Alpha)
 
@@ -3223,7 +3225,7 @@ local Library do
                 end
 
                 if Library:IsMouseOverFrame(Items["ColorpickerWindow"]["Outline"].Instance) then 
-                    return 
+                    return
                 end
 
                 Colorpicker:SetOpen(false)
@@ -4119,7 +4121,7 @@ local Library do
                 Items["Text"].Instance.TextColor3 = FromRGB(255, 255, 255)
 
                 Library:Connect(RunService.Heartbeat, function()
-                    local GradientOffset = MathAbs(MathSin(tick() * Window.GradientTitle.Speed))
+                    local GradientOffset = MathAbs(mathSin(tick() * Window.GradientTitle.Speed))
                     UIGradient.Instance.Offset = Vector2New(GradientOffset, 0)   
                 end)
             else
@@ -4848,7 +4850,8 @@ local Library do
         })
 
         function Button:SetVisibility(Bool)
-            Button:SetVisibility(Bool)
+            -- FIX: Corrected recursive call
+            NewButton:SetVisibility(Bool)
         end
 
         function Button:SubButton(Data)
@@ -4869,6 +4872,7 @@ local Library do
             local NewSubbutton, SubItems = NewButton:SubButton(SubButton)
 
             function SubButton:SetVisibility(Bool)
+                -- FIX: Corrected recursive call
                 NewSubbutton:SetVisibility(Bool)
             end
 
