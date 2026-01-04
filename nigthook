@@ -1,4 +1,4 @@
---Stormt
+--Storm
 local LoadingTick = os.clock()
 
 if getgenv().Library then 
